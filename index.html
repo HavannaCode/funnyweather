@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Wetter mit OpenWeather</title>
+</head>
+<body>
+  <h1>Wetter-App</h1>
+  <button id="laden">Wetter laden</button>
+  <pre id="ausgabe">Noch keine Daten geladen.</pre>
+
+  <script>
+    const apiKey = "c6c1f1a3f4075ad42a6aec84b0e76209";
+    const stadt = "Vienna";
+
+    async function ladeWetter() {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${stadt}&appid=${apiKey}&units=metric&lang=de`;
+
+      const response = await fetch(url);
+      const daten = await response.json();
+
+      document.getElementById("ausgabe").textContent =
+        JSON.stringify(daten, null, 2);
+    }
+
+    document.getElementById("laden").addEventListener("click", ladeWetter);
+  </script>
+</body>
+</html>
