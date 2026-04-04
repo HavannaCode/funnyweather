@@ -1,6 +1,12 @@
 <script>
+/**
+ * Läd die Wetterdaten für die angegebenen Koordinaten.
+ * Koordinaten werden berechnet via https://epsg.io/4326
+ * OpenAPI-Doku für den Mode forecast: https://dataset.api.hub.geosphere.at/v1/openapi-docs#/forecast/Timeseries_Forecast_timeseries_forecast__resource_id__get
+ */
 (async () => {
-  const url = "https://dataset.api.hub.geosphere.at/v1/timeseries/forecast/nwp-v1-1h-2500m?parameters=t2m&lat_lon=48.21,16.37";
+  const koordinaten = "48.21,16.37" // Wien
+  const url = `https://dataset.api.hub.geosphere.at/v1/timeseries/forecast/nwp-v1-1h-2500m?parameters=t2m&lat_lon=${koordinaten}`;
   const res = await fetch(url);
   const json = await res.json();
 
