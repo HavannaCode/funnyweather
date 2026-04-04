@@ -1,0 +1,14 @@
+<script>
+(async () => {
+  const url = "https://dataset.api.hub.geosphere.at/v1/timeseries/forecast/nwp-v1-1h-2500m?parameters=t2m&lat_lon=48.21,16.37";
+  const res = await fetch(url);
+  const json = await res.json();
+
+  const times = json.timestamps;
+  const temps = json.features[0].properties.parameters.t2m.data;
+
+  for (let i = 0; i < 3; i++) {
+   document.body.innerHTML += times[i] + " → " + temps[i] + " °C<br>"; 
+  }
+})();
+</script>
