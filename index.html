@@ -9,7 +9,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #2e2e2e75;
+      background: #000000dc;
       color: #84a9cf;
       font-size: 3em;
       font-family: system-ui;
@@ -24,6 +24,7 @@
  * Läd die Wetterdaten für die angegebenen Koordinaten.
  * Koordinaten werden berechnet via https://epsg.io/4326
  * OpenAPI-Doku für den Mode forecast: https://dataset.api.hub.geosphere.at/v1/openapi-docs#/forecast/Timeseries_Forecast_timeseries_forecast__resource_id__get
+ * @param {string} Welche Wetter-Parameter das API liefern soll.
  */
 async function getweather (parameter) {
   const koordinaten = "48.21,16.37" // Wien
@@ -37,7 +38,7 @@ async function getweather (parameter) {
     const temps = json.features[0].properties.parameters.t2m.data;
 
     for (let i = 0; i < 6; i++) {
-      document.body.innerHTML += (stunde + i) +" → " + temps[i] + " °C<br>"; 
+      document.body.innerHTML += (stunde + i) +" → " + Math.round(temps[i]) + " °C<br>"; 
     }
   } catch (error) {
     console.error("Fehler beim Laden der Wetterdaten:", error);
