@@ -34,10 +34,13 @@ async function getweather (parameter) {
     const json = await res.json();
 
     const stunde = new Date().getHours();
+    const timezone = 2; // For Vienna FIXME to support timezones correctly
     const times = json.timestamps;
     const temps = json.features[0].properties.parameters.t2m.data;
 
-    for (let i = 0; i < 6; i++) {
+    document.body.innerHTML += "Wetter in Wien<br>";
+
+    for (let i = timezone; i < 8; i++) {
       document.body.innerHTML += (stunde + i) +" → " + Math.round(temps[i]) + " °C<br>"; 
     }
   } catch (error) {
