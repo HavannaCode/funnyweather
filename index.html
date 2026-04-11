@@ -41,7 +41,7 @@ async function getweather (parameter) {
     document.body.innerHTML += "Wetter in Wien<br>";
 
     for (let i = timezone; i < 8; i++) {
-      document.body.innerHTML += (stunde + i) +" → " + Math.round(temps[i]) + " °C<br>"; 
+      document.body.innerHTML += (stunde + i) +" → " + temps[i].toFixed(0) + " °C<br>"; 
     }
   } catch (error) {
     console.error("Fehler beim Laden der Wetterdaten:", error);
