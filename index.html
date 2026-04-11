@@ -38,9 +38,10 @@ async function getweather(parameter) {
     const timezone = 2; // FIXME
     const temps = json.features[0].properties.parameters.t2m.data;
 
-	  document.body.innerHTML += `Wetter in<br> ${koordinaten}<br>`;
+	  document.body.innerHTML += `Wetter in<br> ${koordinaten}<br>in den nächsten Stunden<br>`;
 
     for (let i = timezone; i < 8; i++) {
+      if (stunde + i == 25) break;
       document.body.innerHTML += (stunde + i) +" → " + temps[i].toFixed(0) + " °C<br>"; 
     }
   });
