@@ -28,8 +28,8 @@
  */
 async function getweather(parameter) {
   navigator.geolocation.getCurrentPosition(async pos => {
-    const koordinaten = `${pos.coords.latitude},${pos.coords.longitude}`;
-    const url = `https://dataset.api.hub.geosphere.at/v1/timeseries/forecast/nwp-v1-1h-2500m?parameters=${parameter}&lat_lon=${koordinaten}`;
+    const coordinates = `${pos.coords.latitude},${pos.coords.longitude}`;
+    const url = `https://dataset.api.hub.geosphere.at/v1/timeseries/forecast/nwp-v1-1h-2500m?parameters=${parameter}&lat_lon=${coordinates}`;
 
     const res = await fetch(url);
     const json = await res.json();
@@ -38,7 +38,7 @@ async function getweather(parameter) {
     const offset = 2; // FIXME make real timezone
     const temps = json.features[0].properties.parameters.t2m.data;
 
-	  document.body.innerHTML += `Wetter in<br> ${koordinaten}<br>in den nächsten Stunden<br>`;
+	  document.body.innerHTML += `Wetter in<br> ${coordinates}<br>in den nächsten Stunden<br>`;
 
     for (let i = offset; i < 8; i++) {
       const hour = now % 24; 
