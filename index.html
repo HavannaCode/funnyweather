@@ -34,15 +34,15 @@ async function getweather(parameter) {
     const res = await fetch(url);
     const json = await res.json();
 
-    const stunde = new Date().getHours();
-    const timezone = 2; // FIXME
+    const now = new Date().getHours();
+    const offset = 2; // FIXME make real timezone
     const temps = json.features[0].properties.parameters.t2m.data;
 
 	  document.body.innerHTML += `Wetter in<br> ${koordinaten}<br>in den nächsten Stunden<br>`;
 
-    for (let i = timezone; i < 8; i++) {
-      if (stunde + i == 25) break;
-      document.body.innerHTML += (stunde + i) +" → " + temps[i].toFixed(0) + " °C<br>"; 
+    for (let i = offset; i < 8; i++) {
+      const hour = now % 24; 
+      document.body.innerHTML += (hour + i) +" → " + temps[i].toFixed(0) + " °C<br>"; 
     }
   });
 }
