@@ -1,0 +1,87 @@
+* {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #0b0f14, #111827);
+      color: #e5eef8;
+      font: 16px/1.4 system-ui, sans-serif;
+    }
+
+    .panel {
+      width: min(680px, 92vw);
+      padding: 1.25rem;
+      background: rgba(20, 26, 36, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.25rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 80px 1fr 80px 80px;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.85rem 0;
+    }
+
+    .head {
+      color: #8fa3b8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    #forecast .row {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    #forecast .row:last-child {
+      border-bottom: 0;
+    }
+
+    .temp {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .icon {
+      font-size: 1.25rem;
+    }
+
+    .rain {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time,
+    .temp {
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 560px) {
+      .row {
+        grid-template-columns: 64px 1fr 56px 64px;
+        gap: 0.5rem;
+      }
+
+      .panel {
+        padding: 1rem;
+        border-radius: 16px;
+      }
+    }
