@@ -57,7 +57,7 @@ async function getweather(parameter, coordinates) {
   const unit = units[parameter] ?? "";
 
   for (let i = offset; i < 8; i++) {
-    document.body.innerHTML += `${(now + i) % 24} → ${forecast[i].toFixed(0)} ${unit}<br>`;
+    console.log(`${(now + i) % 24} → ${forecast[i].toFixed(0)} ${unit}<br>`);
   }
 }
 
