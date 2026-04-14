@@ -31,6 +31,12 @@
       font-size: 1.25rem;
     }
 
+    .subline {
+      margin: 0 0 1rem;
+      color: #8fa3b8;
+      font-size: 0.95rem;
+    }
+
     .row {
       display: grid;
       grid-template-columns: 80px 1fr 80px 80px;
