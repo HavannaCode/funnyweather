@@ -65,7 +65,7 @@ async function main() {
   const pos = await getCoordinates();
   const coordinates = `${pos.coords.latitude},${pos.coords.longitude}`;
 
-  document.body.innerHTML += `Wetter in<br> ${coordinates}<br>in den nächsten Stunden<br>`;
+  console.log(`Koordinaten: ${coordinates}`);
 
   await getweather("t2m", coordinates);
   await getweather("rr_acc", coordinates);
